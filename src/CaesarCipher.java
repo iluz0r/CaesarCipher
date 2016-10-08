@@ -29,12 +29,12 @@ public class CaesarCipher implements ClassicCipher {
 	public String Enc(String plainText) {
 		int k = Integer.valueOf(key);
 		StringBuffer buffer = new StringBuffer();
-		
-		for(char c : plainText.toCharArray()) {
+
+		for (char c : plainText.toCharArray()) {
 			int asciiCode = (int) c;
 
 			if (asciiCode >= 97 && asciiCode <= 122)
-				buffer.append((char)(((asciiCode - 97 + k) % 26) + 97));
+				buffer.append((char) (((asciiCode - 97 + k) % 26) + 97));
 		}
 
 		return buffer.toString();
