@@ -15,12 +15,15 @@ public class Run {
 				ans = s.nextLine();
 			} while (!ans.equals("y") && !ans.equals("n"));
 
+			cc = new CaesarCipher();
 			if (ans.equals("y")) {
-				cc = new CaesarCipher();
+				cc.setKey(cc.genKey());
 			} else {
 				System.out.println("Inserisci la chiave:");
-				key = s.nextLine();
-				cc = new CaesarCipher(key);
+				do {
+					key = s.nextLine();
+				} while (!cc.checkKey(key));
+				cc.setKey(key);
 			}
 
 			System.out.println("Inserisci il plain text: ");

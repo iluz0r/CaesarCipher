@@ -7,12 +7,6 @@ public class CaesarCipher implements ClassicCipher {
 
 	public CaesarCipher() {
 		rg = new Random();
-		key = genKey();
-	}
-
-	public CaesarCipher(String key) {
-		this.key = key;
-		rg = new Random();
 	}
 
 	@Override
@@ -67,11 +61,8 @@ public class CaesarCipher implements ClassicCipher {
 		return String.valueOf(buffer);
 	}
 
-	private boolean checkKey(String key) {
-		if (Integer.valueOf(key) >= 0 && Integer.valueOf(key) <= 26)
-			return true;
-		else
-			return false;
+	public boolean checkKey(String key) {
+		return (Integer.valueOf(key) >= 0 && Integer.valueOf(key) <= 26);
 	}
 
 }
