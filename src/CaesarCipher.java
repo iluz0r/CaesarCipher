@@ -17,7 +17,8 @@ public class CaesarCipher implements ClassicCipher {
 
 	@Override
 	public void setKey(String key) {
-		this.key = key;
+		if (checkKey(key))
+			this.key = key;
 	}
 
 	@Override
@@ -64,6 +65,13 @@ public class CaesarCipher implements ClassicCipher {
 		}
 
 		return String.valueOf(buffer);
+	}
+
+	private boolean checkKey(String key) {
+		if (Integer.valueOf(key) >= 0 && Integer.valueOf(key) <= 26)
+			return true;
+		else
+			return false;
 	}
 
 }
