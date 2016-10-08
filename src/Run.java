@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Run {
-	// Commit from Christian's house
+	// Commit from Christian's housee
 	public static void main(String[] args) {
 		CaesarCipher cc;
 		String key;
