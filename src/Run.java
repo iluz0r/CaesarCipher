@@ -6,11 +6,10 @@ public class Run {
 		CaesarCipher cc;
 		String key;
 		Scanner s = new Scanner(System.in);
-		String rep;
+		String ans;
 
 		do {
 			System.out.println("Vuoi generare casualmente la chiave? (y/n)");
-			String ans;
 			do {
 				ans = s.nextLine();
 			} while (!ans.equals("y") && !ans.equals("n"));
@@ -35,8 +34,8 @@ public class Run {
 			System.out.println("PlainText: " + plainText + '\n' + "Key: " + key + '\n' + "CipherText: " + cipherText
 					+ '\n' + "Decoded Text: " + decodedText);
 			System.out.println("Ripetere l'operazione? (y/n)");
-			rep = s.nextLine();
-		} while (rep.equals("y"));
+			ans = s.nextLine();
+		} while (ans.equals("y"));
 
 		s.close();
 	}
