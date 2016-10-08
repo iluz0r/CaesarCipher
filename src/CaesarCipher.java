@@ -28,25 +28,25 @@ public class CaesarCipher implements ClassicCipher {
 	@Override
 	public String Enc(String plainText) {
 		int k = Integer.valueOf(key);
-		char[] buffer = plainText.toCharArray();
-
-		for (int i = 0; i < plainText.length(); i++) {
-			int asciiCode = (int) buffer[i];
+		StringBuffer buffer = new StringBuffer();
+		
+		for(char c : plainText.toCharArray()) {
+			int asciiCode = (int) c;
 
 			if (asciiCode >= 97 && asciiCode <= 122)
-				buffer[i] = (char) (((asciiCode - 97 + k) % 26) + 97);
+				buffer.append((char)(((asciiCode - 97 + k) % 26) + 97));
 		}
 
-		return String.valueOf(buffer);
+		return buffer.toString();
 	}
 
 	@Override
 	public String Dec(String cipherText) {
 		int k = Integer.valueOf(key);
-		char[] buffer = cipherText.toCharArray();
+		StringBuffer buffer = new StringBuffer();
 
-		for (int i = 0; i < cipherText.length(); i++) {
-			int asciiCode = (int) buffer[i];
+		for (char c : cipherText.toCharArray()) {
+			int asciiCode = (int) c;
 
 			if (asciiCode >= 97 && asciiCode <= 122) {
 				int x = (asciiCode - 97 - k) % 26;
@@ -54,11 +54,11 @@ public class CaesarCipher implements ClassicCipher {
 				if (x < 0)
 					x += 26;
 
-				buffer[i] = (char) (x + 97);
+				buffer.append((char) (x + 97));
 			}
 		}
 
-		return String.valueOf(buffer);
+		return buffer.toString();
 	}
 
 	public boolean checkKey(String key) {
