@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
 public class Run {
-	
+
 	private static ClassicCipher c;
 	private static Scanner s;
 
 	public static void main(String[] args) {
-	    c = new CaesarCipher();
+		c = new CaesarCipher();
 		s = new Scanner(System.in);
 		String ans, plainText, cipherText, decodedText;
 
@@ -17,16 +17,16 @@ public class Run {
 			cipherText = c.Enc(plainText);
 			decodedText = c.Dec(cipherText);
 
-			System.out.println("PlainText: " + plainText + '\n' + "Key: " + c.getKey() + '\n' + "CipherText: " + cipherText
-					+ '\n' + "Decoded Text: " + decodedText);
-			
+			System.out.println("PlainText: " + plainText + '\n' + "Key: " + c.getKey() + '\n' + "CipherText: "
+					+ cipherText + '\n' + "Decoded Text: " + decodedText);
+
 			System.out.println("Ripetere l'operazione? (y/n)");
 			ans = s.nextLine();
 		} while (ans.equals("y"));
 
 		s.close();
 	}
-	
+
 	private static void chooseKey() {
 		String ans, key;
 

@@ -62,7 +62,7 @@ public class CaesarCipher implements ClassicCipher {
 	}
 
 	public boolean checkKey(String key) {
-		return (Integer.valueOf(key) >= 0 && Integer.valueOf(key) <= 26);
+		return (Integer.valueOf(key) > 0 && Integer.valueOf(key) < 26);
 	}
 
 }
