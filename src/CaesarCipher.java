@@ -10,9 +10,11 @@ public class CaesarCipher implements ClassicCipher {
 	}
 
 	@Override
-	public void setKey(String key) {
+	public void setKey(String key) throws Exception {
 		if (checkKey(key))
 			this.key = key;
+		else
+			throw new Exception();
 	}
 
 	@Override
@@ -64,7 +66,7 @@ public class CaesarCipher implements ClassicCipher {
 		return buffer.toString();
 	}
 
-	public boolean checkKey(String key) {
+	private boolean checkKey(String key) {
 		return (Integer.valueOf(key) > 0 && Integer.valueOf(key) < 26);
 	}
 

@@ -11,7 +11,12 @@ public class Run {
 		String ans, plainText, cipherText, decodedText;
 
 		do {
-			chooseKey();
+			try {
+				chooseKey();
+			} catch (Exception e) {
+				System.err.println("Chiave non valida! Uscita dal programma...");
+				System.exit(1);
+			}
 			System.out.println("Inserisci il plain text: ");
 			plainText = s.nextLine();
 			cipherText = c.Enc(plainText);
@@ -27,7 +32,7 @@ public class Run {
 		s.close();
 	}
 
-	private static void chooseKey() {
+	private static void chooseKey() throws Exception {
 		String ans, key;
 
 		System.out.println("Vuoi generare casualmente la chiave? (y/n)");
@@ -39,9 +44,7 @@ public class Run {
 			c.setKey(c.genKey());
 		} else {
 			System.out.println("Inserisci la chiave:");
-			do {
-				key = s.nextLine();
-			} while (!((CaesarCipher) c).checkKey(key));
+			key = s.nextLine();
 			c.setKey(key);
 		}
 	}

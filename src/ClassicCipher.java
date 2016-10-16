@@ -1,5 +1,5 @@
 public interface ClassicCipher {
-	void setKey(String key);
+	void setKey(String key) throws Exception;
 
 	String getKey();
 
