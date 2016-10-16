@@ -35,6 +35,8 @@ public class CaesarCipher implements ClassicCipher {
 
 			if (asciiCode >= 97 && asciiCode <= 122)
 				buffer.append((char) (((asciiCode - 97 + k) % 26) + 97));
+			else
+				buffer.append(c);
 		}
 
 		return buffer.toString();
@@ -55,7 +57,8 @@ public class CaesarCipher implements ClassicCipher {
 					x += 26;
 
 				buffer.append((char) (x + 97));
-			}
+			} else
+				buffer.append(c);
 		}
 
 		return buffer.toString();
